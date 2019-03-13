@@ -24,9 +24,7 @@ echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     rm -rf $KAK
     ln -s $DOTKAK $KAK
-    # # install all plugins
-    # echo "Installing plugins. This may take a while."
+    # install all plugins
+    # TODO: find a clean-ish solution to do this with a headless client
     kak -e plug-install
-    # echo
-    # echo "Done."
 fi
