@@ -40,4 +40,6 @@ map global user c ': comment-line<ret>' -docstring '(un)comment line'
 plug "andreyorst/fzf.kak" config %{
     map global normal <c-p> ': fzf-mode<ret>'
     set-option global fzf_file_command 'rg'
+    set-option global fzf_preview_width '65%'
+}
 }
