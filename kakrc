@@ -4,8 +4,6 @@ addhl global/ wrap
 addhl global/ number-lines -relative -hlcursor
 # highlight matching symbols (braces, parens, etc.)
 addhl global/ show-matching
-# underline matching characters
-face global MatchingChar default,default+u
 
 # remap autocompletion to <(s)-tab>
 hook global InsertCompletionShow .* %{
