@@ -13,7 +13,7 @@ read -n 1 -r
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]; then
     rm -rf $DOTKAK/autoload
-    curl -LSso $DOTKAK/autoload/plug.kak --create-dirs https://raw.githubusercontent.com/andreyorst/plug.kak/v2019.01.20/rc/plug.kak
+    curl -LSso $DOTKAK/autoload/plug.kak --create-dirs https://raw.githubusercontent.com/andreyorst/plug.kak/master/rc/plug.kak
     ln -s /usr/share/kak/autoload/ $DOTKAK/autoload/site-wide
     rm -rf $DOTKAK/plugins
 fi
