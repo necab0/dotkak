@@ -33,7 +33,8 @@ hook global NormalKey y|d|c %{ nop %sh{
 map global user p '<a-!>xsel --output --clipboard<ret>' -docstring 'paste from system clipboard after selected text'
 map global user P '!xsel --output --clipboard<ret>' -docstring 'paste from system clipboard before selected text'
 
-# fzf plugin
-plug "andreyorst/fzf.kak"
-map global normal <c-p> ': fzf-mode<ret>'
-set-option global fzf_file_command 'rg'
+# fzf.kak plugin
+plug "andreyorst/fzf.kak" config %{
+    map global normal <c-p> ': fzf-mode<ret>'
+    set-option global fzf_file_command 'rg'
+}
