@@ -40,4 +40,4 @@ plug "andreyorst/fzf.kak" config %{
     set-option global fzf_file_command 'rg'
     set-option global fzf_preview_width '65%'
 }
-}
+
