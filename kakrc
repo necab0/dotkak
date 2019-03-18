@@ -5,6 +5,9 @@ addhl global/ number-lines -relative -hlcursor
 # highlight matching symbols (braces, parens, etc.)
 addhl global/ show-matching
 
+# keep cursor towards the center by showing context below/above
+set-option global scrolloff 5,5
+
 # remap autocompletion to <(s)-tab>
 hook global InsertCompletionShow .* %{
     try %{
