@@ -8,6 +8,18 @@ addhl global/ show-matching
 # keep cursor towards the center by showing context below/above
 set-option global scrolloff 5,5
 
+# Indenting
+set-option global tabstop 4
+set-option global indentwidth 4
+set-option global aligntab true
+
+plug "andreyorst/smarttab.kak" %{
+    set-option global softtabstop 4 # how many spaces are treated as single tab
+    hook global WinSetOption .* %{
+        expandtab
+    }
+}
+
 # remap autocompletion to <(s)-tab>
 hook global InsertCompletionShow .* %{
     try %{
