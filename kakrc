@@ -56,3 +56,41 @@ plug "andreyorst/fzf.kak" config %{
     set-option global fzf_preview_width '65%'
 }
 
+# kak-lsp plugin
+plug "ul/kak-lsp" do %{
+    cargo build --release --locked
+    cargo install --force --path . # `--path .' is needed by recent versions of cargo
+} config %{
+    set-option global lsp_diagnostic_line_error_sign '║'
+    set-option global lsp_diagnostic_line_warning_sign '┊'
+    map global user l ': enter-user-mode lsp<ret>' -docstring 'enter lsp user mode'
+
+    define-command ne -docstring 'go to next error/warning from lsp' %{ lsp-find-error --include-warnings }
+    define-command pe -docstring 'go to previous error/warning from lsp' %{ lsp-find-error --previous --include-warnings }
+    define-command ee -docstring 'go to current error/warning from lsp' %{ lsp-find-error --include-warnings; lsp-find-error --previous --include-warnings }
+
+    define-command lsp-restart -docstring 'restart lsp server' %{ lsp-stop; lsp-start }
+
+    hook global WinSetOption filetype=(c|cpp|rust|python) %{
+        set-option window lsp_auto_highlight_references true
+        set-option window lsp_hover_anchor true
+        lsp-auto-hover-enable
+        lsp-auto-signature-help-enable
+        lsp-enable-window
+    }
+
+    hook global WinSetOption filetype=rust %{
+        set-option window lsp_server_configuration rust.clippy_preference="on"
+        set-option window formatcmd 'rustfmt'
+    }
+
+    hook global WinSetOption filetype=rust %{
+        hook window BufWritePre .* %{
+            evaluate-commands %sh{
+                test -f rustfmt.toml && printf lsp-formatting-sync
+            }
+        }
+    }
+
+    hook global KakEnd .* lsp-exit
+}
