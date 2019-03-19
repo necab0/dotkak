@@ -86,9 +86,7 @@ plug "ul/kak-lsp" do %{
 
     hook global WinSetOption filetype=rust %{
         hook window BufWritePre .* %{
-            evaluate-commands %sh{
-                test -f rustfmt.toml && printf lsp-formatting-sync
-            }
+            lsp-formatting-sync
         }
     }
 
