@@ -6,6 +6,10 @@ Requirements
 - xsel
 - fzf
 - ripgrep
+- rls (Rust Language Server)
+- cargo-clippy (MOAR Rust lints)
+- pyls (Python Language Server)
+- flake8 (Python PEP8 linter)
 
 ```bash
 cd ~
