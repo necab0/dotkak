@@ -92,5 +92,9 @@ plug "ul/kak-lsp" do %{
         }
     }
 
+    hook global WinSetOption filetype=python %{
+        set-option window lsp_server_configuration pyls.configurationSources=["flake8"]
+    }
+
     hook global KakEnd .* lsp-exit
 }
