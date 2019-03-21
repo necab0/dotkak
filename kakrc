@@ -96,3 +96,10 @@ plug "ul/kak-lsp" do %{
 
     hook global KakEnd .* lsp-exit
 }
+
+# auto-pairs.kak plugin
+plug "alexherbo2/auto-pairs.kak" config %{
+    hook global WinCreate .* %{
+        auto-pairs-enable
+    }
+}
