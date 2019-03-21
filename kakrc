@@ -52,7 +52,7 @@ map global user c ': comment-line<ret>' -docstring '(un)comment line'
 # fzf.kak plugin
 plug "andreyorst/fzf.kak" config %{
     map global normal <c-p> ': fzf-mode<ret>'
-    set-option global fzf_file_command 'rg'
+    set-option global fzf_file_command 'rg --files --no-ignore --hidden --follow --glob !*/.git/*'
     set-option global fzf_preview_width '65%'
 }
 
