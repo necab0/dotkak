@@ -103,3 +103,12 @@ plug "alexherbo2/auto-pairs.kak" config %{
         auto-pairs-enable
     }
 }
+
+hook global WinCreate .* %{
+    set-face global GitDiffFlags default,default  # set show-diff color to default color
+    git show-diff
+}
+
+hook global BufWritePost .* %{
+    git update-diff
+}
