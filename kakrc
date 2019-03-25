@@ -112,3 +112,7 @@ hook global WinCreate .* %{
 hook global BufWritePost .* %{
     git update-diff
 }
+
+plug "andreyorst/powerline.kak" config %{
+    powerline-separator none
+}
