@@ -14,7 +14,7 @@ Requirements
 ```bash
 cd ~
 mv .config/kak .config/kak.bak  # backup current kakoune configuration if present
-git clone https://github.com/necab0/dotkak.git .kak
+git clone https://github.com/necabo/dotkak.git .kak
 cd .kak && ./install.sh
 ```
 
